@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "InputSystem_Actions",
     "maps": [
         {
@@ -986,6 +987,34 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Debug",
+            "id": "8a4a7ece-d551-413e-8ab1-c1b9264e57fe",
+            "actions": [
+                {
+                    "name": "Debug_K",
+                    "type": "Button",
+                    "id": "d1569877-11d9-48a7-ac85-f40e6b48322b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "011acba5-c8e9-41db-bf09-803cb1948612",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Debug_K",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
