@@ -15,16 +15,22 @@ public class PlayerController : MonoBehaviour
     Vector3 moveInput;
     Vector3 move;
     [SerializeField] float deadzone;
+    HeatManager heatManager;
+
+    [Header("â∑ìx")]
+    public float temperature;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
+        heatManager = GameObject.Find("BlockManager").GetComponent<HeatManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // à⁄ìÆ
         moveInput = moveAction.ReadValue<Vector2>();
         moveInput = new Vector3(moveInput.x, 0, moveInput.y);
         if (!isMoving)
@@ -84,6 +90,9 @@ public class PlayerController : MonoBehaviour
                 transform.position = targetPos;
             }
         }
+
+        //ç°Ç¢ÇÈèÍèäÇâ¡îM
+        heatManager.heatGrid[(int)SnapToGrid(targetPos).x, (int)SnapToGrid(targetPos).z] += temperature;
     }
 
     Vector3 SnapToGrid(Vector3 position)

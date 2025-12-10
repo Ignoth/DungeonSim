@@ -240,6 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1285141730}
   - component: {fileID: 1285141731}
+  - component: {fileID: 1285141732}
   m_Layer: 0
   m_Name: BlockManager
   m_TagString: Untagged
@@ -276,8 +277,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BlockManager
   fieldRangeLowerLeft: {x: -10, y: -10}
   fieldRangeUpperRight: {x: 10, y: 10}
+  fieldWidth: 1
+  fieldHeight: 1
   blocksVariations:
   - {fileID: 3234687632118551023, guid: 3ab4164f134e3b14e886a6cba79779c0, type: 3}
+--- !u!114 &1285141732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285141729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 821c69294682d8b4aa529bad29af0e30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HeatManager
+  W: 0
+  H: 0
+  N: 0
+  D: 0.5
+  dt: 0.001
+  dx: 1
+  heatMapPrefab: {fileID: 6205529732820341504, guid: 5487fc4f8ad1aad448ab1d46c27d7dda, type: 3}
 --- !u!1001 &1323756826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -343,6 +365,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5382398446727651460, guid: 71c0cfce2b5e50a468a069d559720bb9, type: 3}
+      propertyPath: temperature
+      value: 0.0002
+      objectReference: {fileID: 0}
     - target: {fileID: 5430598306198750995, guid: 71c0cfce2b5e50a468a069d559720bb9, type: 3}
       propertyPath: m_Name
       value: Player
@@ -449,63 +475,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5ef38662e5af1c41a13b5720e5ef072, type: 3}
---- !u!1001 &5976115827290425146
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3234687632118551023, guid: 3ab4164f134e3b14e886a6cba79779c0, type: 3}
-      propertyPath: m_Name
-      value: Block1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5687204810832775636, guid: 3ab4164f134e3b14e886a6cba79779c0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5687204810832775636, guid: 3ab4164f134e3b14e886a6cba79779c0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5687204810832775636, guid: 3ab4164f134e3b14e886a6cba79779c0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5687204810832775636, guid: 3ab4164f134e3b14e886a6cba79779c0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5687204810832775636, guid: 3ab4164f134e3b14e886a6cba79779c0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5687204810832775636, guid: 3ab4164f134e3b14e886a6cba79779c0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5687204810832775636, guid: 3ab4164f134e3b14e886a6cba79779c0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5687204810832775636, guid: 3ab4164f134e3b14e886a6cba79779c0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5687204810832775636, guid: 3ab4164f134e3b14e886a6cba79779c0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5687204810832775636, guid: 3ab4164f134e3b14e886a6cba79779c0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3ab4164f134e3b14e886a6cba79779c0, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -515,4 +484,3 @@ SceneRoots:
   - {fileID: 2009415478}
   - {fileID: 820379922}
   - {fileID: 1285141730}
-  - {fileID: 5976115827290425146}
